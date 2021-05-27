@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=, initial-scale=1.0">
+        <title>Perfil</title>
+    </head>
+
+    <div class="header">
+        <div class="navigation">
+            <feed>
+                <a href="/feed">
+                    <button class="feed">Feed</button>
+                </a>
+            </feed>
+            <perfil>
+                <a href="/perfil">
+                    <button class="perfil">Perfil</button>
+                </a>
+            </perfil>
+            <logout>
+                <a href="/">
+                    <button class="logout">Logout</button>
+                </a>
+            </logout>
+        </div>
+    </div>
+
+    <body>
+
+        <% if (userInfo != null) { %>
+            <img src="<%=userInfo.userpicture%>", class = "profile_picture">
+            <div class = "user_name"> <%=userInfo.name %></div>
+
+            <h5 class="account"> Publicaciones </h5>
+
+            <% if (postedPosts.length > 0) { %>
+                <div class="multiple_posts_wrapper">
+                <% postedPosts.forEach(post => { %>
+                    <div class="save">
+                        <a href="/post/<%=post[1]%>">
+                            <img src="<%=post[0]%>", class="post_img">
+                        </a>
+
+                        <form action="<%=new_post_path%>", method="post">
+                            <input type="hidden", value=<%=identification%> name="id">
+                            <input type="hidden", value="<%= post[1] %>", name="post_id">
+                            <input type="hidden", value="delete", name="type">
+                            <input type="submit" value="Eliminar Post" class="destroy_post"/>
+                        </form>
+                    </div>
+                <% }); %>
+                </div>
+            <% }; %>
+
+            <h5 class="account">Posts Guardados</h5>
+
+            <% if (savedPosts.length > 0) { %>
+                <div class="multiple_posts_wrapper">
+                <% savedPosts.forEach(post => { %>
+                    <div class="post">
+                        <a href="/post/<%=post[1]%>">
+                            <img src="<%=post[0]%>", class="post_img">
+                        </a>
+                    </div>
+                <% }); %>
+                </div>
+            <% }; %>
+        <% }; %>
+
+        <div class="wrapper_post_form">
+            <h5 class="texto">Nueva Publicacion</h5>
+            <form action="<%= new_post_path %>", method = "post">
+                <input type="hidden" name="id", value=<%=identification%>>
+                <input type="hidden", value="new", name="type">
+                <input type="text" name="url", value="Url de la imagen a subir">
+                <input type="text" name="description", value='Descripcion'>
+                <input type="submit", value="Subir imagen">
+            </form>
+        <div>
+
+        
+    </body>
+    <footer class = "footer"> @IIC2513 Monki Flip</footer>
+</html>

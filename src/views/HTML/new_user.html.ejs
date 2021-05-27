@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Post</title>
+</head>
+<body>
+
+<div class="wrapper_registro">
+    <h5 class="texto">Registro de Usuario</h5>
+    <form action="<%=new_user_path%>", method = "post">
+        <% if (notice) { %>
+            <div class="notice"> <%=notice%> </div>
+        <% } %>
+        <input type="text" name="name", value="Nombre de Usuario">
+        <input type="password" name="password", value="Contraseña">
+        <input type="text" name="userpicture", value="Url de la foto de perfil">
+        <input type="submit", value="Registrar Usuario", class="button">
+    </form>
+</div>
+    <a href="/">
+        <button class="like_button"> Iniciar sesión </button>
+    </a>
+    <footer class = "footer"> @IIC2513 Monki Flip </footer>
+</body>
+</html>

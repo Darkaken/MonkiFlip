@@ -1,0 +1,57 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed</title>
+</head>
+<body>
+    <div class="header">
+        <div class="navigation">
+            <feed>
+                <a href="/feed">
+                    <button class="feed">Feed</button>
+                </a>
+            </feed>
+            <perfil>
+                <a href="/perfil">
+                    <button class="perfil">Perfil</button>
+                </a>
+            </perfil>
+            <logout>
+                <a href="/">
+                    <button class="logout">Logout</button>
+                </a>
+            </logout>
+        </div>
+    </div>
+
+    <div class = "multiple_posts_wrapper">
+        <% if (listaFinal.length > 0) { %>
+            <% listaFinal.forEach(post => { %>
+
+                <div class = "post_wrapper">
+
+                    <div class="account"> <%= post[3] %></div>
+
+                    <a href="/post/<%=post[2]%>">
+                        <img src="<%=post[1]%>" class = "post_img">
+                    </a>
+
+                    <div class="description"> Descripcion: <%= post[0]%> </div>
+                    <div class="like_ammount"> <%= post[4]%> Likes </div>
+
+                    <div> Liked: <%= post[5]%></div>
+                    <div> Saved: <%= post[6]%></div>
+
+                </div>
+
+            <% }); %>
+        <% }; %>
+
+    </div>
+
+    <footer class = "footer"> @IIC2513 Monki Flip</footer>
+
+</body>
+</html>

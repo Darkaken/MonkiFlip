@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Post</title>
+</head>
+<body>
+    <div class = "header">
+        <div class = "navigation">
+          <button class = "feed"> Go to feed </button>
+          <button class = "perfil"> Go to profile </button>
+          <button class = "logout"> Logout </button>
+        </div>
+      </div>
+
+    <div class="wrapper_post_form">
+        <h5 class="texto">Nuevo Post</h5>
+        <form action="<%= new_post_path %>", method = "post">
+            <input type="hidden" name="id", value=<%=user_info.id%>>
+            <input type="text" name="url", value="Url de la imagen a subir">
+            <input type="text" name="description">
+            <input type="submit", value="Subir imagen">
+        </form>
+    <div>
+
+    <footer class = "footer"> @IIC2513 Monki Flip </footer>
+</body>
+</html>

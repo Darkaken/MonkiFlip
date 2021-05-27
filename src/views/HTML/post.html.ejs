@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Post</title>
+</head>
+
+    <div class="header">
+        <div class="navigation">
+            <feed>
+                <a href="/feed">
+                    <button class="feed">Feed</button>
+                </a>
+            </feed>
+            <perfil>
+                <a href="/perfil">
+                    <button class="perfil">Perfil</button>
+                </a>
+            </perfil>
+            <logout>
+                <a href="/">
+                    <button class="logout">Logout</button>
+                </a>
+            </logout>
+        </div>
+    </div>
+
+    <body>
+
+        <img src="<%=post.url%>" class = "post_img">
+        <div class="account"> <%=owner.name%> </div>
+        <div class="description"> Descripcion: <%=post.description%> </div>
+        <div class="like_ammount"> Likes: <%=likes%> </div>
+
+        <form action="<%=edit_state_path%>", method="post">
+            <input type="hidden", value="like", name="stateName">
+            <input type="hidden" value="<%=post.id%>" name="id_post">
+            <input type="submit", value="<%=likeText%>", name='TRIGGER', class ="like_button">
+        </form>
+
+        <form action="<%=edit_state_path%>", method="post">
+            <input type="hidden", value="save", name="stateName">
+            <input type="hidden" value="<%=post.id%>" name="id_post">
+            <input type="submit", value="<%=saveText%>", name='TRIGGER', class ="save_button">
+        </form>
+
+
+        <footer class = "footer"> @IIC2513 Monki Flip </footer>
+    </body>
+</html>
